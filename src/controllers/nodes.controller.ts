@@ -1,4 +1,6 @@
 import {
+  BulkNodesActionsCommand,
+  BulkNodesProfileModificationCommand,
   CreateNodeCommand,
   DeleteNodeCommand,
   DisableNodeCommand,
@@ -170,6 +172,31 @@ export class NodesController {
     >({
       method: ResetNodeTrafficCommand.endpointDetails.REQUEST_METHOD,
       url: ResetNodeTrafficCommand.url(uuid),
+    });
+  }
+
+  public async bulkProfileModification(
+    data: BulkNodesProfileModificationCommand.Request,
+  ): Promise<BulkNodesProfileModificationCommand.Response['response']> {
+    return this.httpClient.callApi<
+      BulkNodesProfileModificationCommand.Response['response']
+    >({
+      method:
+        BulkNodesProfileModificationCommand.endpointDetails.REQUEST_METHOD,
+      url: BulkNodesProfileModificationCommand.url,
+      data,
+    });
+  }
+
+  public async bulkAction(
+    data: BulkNodesActionsCommand.Request,
+  ): Promise<BulkNodesActionsCommand.Response['response']> {
+    return this.httpClient.callApi<
+      BulkNodesActionsCommand.Response['response']
+    >({
+      method: BulkNodesActionsCommand.endpointDetails.REQUEST_METHOD,
+      url: BulkNodesActionsCommand.url,
+      data,
     });
   }
 }

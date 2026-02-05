@@ -174,7 +174,7 @@ export class UserController {
 
   public async revoke(
     uuid: string,
-    data?: RevokeUserSubscriptionCommand.Request,
+    data?: RevokeUserSubscriptionCommand.RequestBody,
   ): Promise<RevokeUserSubscriptionCommand.Response['response']> {
     return this.httpClient.callApi<
       RevokeUserSubscriptionCommand.Response['response']

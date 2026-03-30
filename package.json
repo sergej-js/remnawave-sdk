@@ -24,8 +24,8 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && tsc",
-    "prepublish": "npm run build"
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "keywords": [
     "remnawave",
